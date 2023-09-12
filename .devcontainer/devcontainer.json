@@ -1,0 +1,54 @@
+// See https://containers.dev/implementors/json_reference/ for configuration reference
+{
+	"name": "Sveltekit with bun",
+	"build": {
+		"dockerfile": "Dockerfile"
+	},
+    "workspaceMount": "src=${localWorkspaceFolder},dst=/workspace,type=bind,consistency=cached",
+    "workspaceFolder": "/workspace",
+	"remoteUser": "vscode",
+	"features": {
+		"ghcr.io/shyim/devcontainers-features/bun:0": {}
+	},
+	"customizations": {
+		"common": {
+			"username": "automatic",
+			"uid": "automatic",
+			"gid": "automatic",-
+			"installZsh": true,
+			"upgradePackages": true
+		},
+		"docker-from-docker": {
+			"version": "latest",
+			"moby": false,
+			"dockerDashComposeVersion": "v2"
+    	},
+		"github-cli": "latest",
+		"vscode": {
+			"extensions": [
+				"svelte.svelte-vscode",
+				"oven.bun-vscode",
+				"rangav.vscode-thunder-client",
+				"github.vscode-pull-request-github",		
+				"visualstudioexptteam.vscodeintellicode",
+				"visualstudiotxptteam.vscodeintellicode-completions",
+				"ms-azuretools.vscode-docker",
+				"dbaeumer.vscode-eslint",
+				"streetsidesoftware.code-spell-checker",
+				"redhat.vscode-yaml",
+				"bierner.github-markdown-preview"
+			]
+		},
+		"settings": {
+			"terminal.integrated.defaultProfile.linux": "zsh",
+			"editor.formatOnPaste": true,
+	
+			"editor.guides.bracketPairs": "active",
+	
+			"eslint.validate": [
+				"javascript",
+				"typescript"
+			]
+		}
+	}
+}
